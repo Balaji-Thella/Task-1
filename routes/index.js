@@ -2,11 +2,6 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 
-const agentDB = mongoose.model("Agent");
-const carrierDB = mongoose.model("Carrier");
-const lobDB = mongoose.model("LOB");
-const policyDB = mongoose.model("Policy");
-const user_accountDB = mongoose.model("Users_Account");
 const userDB = mongoose.model("User");
 
 /* GET home page. */
@@ -65,7 +60,6 @@ router.post("/search", function (req, res, next) {
 });
 
 router.get("/userPolicy", function (req, res, next) {
-  let info = req.body;
   userDB
     .aggregate([
       {

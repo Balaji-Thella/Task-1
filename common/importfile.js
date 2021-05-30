@@ -88,11 +88,14 @@ function dbCreateCallback(items, callback) {
         policyDB.create(policyData, function (policyerr, policyres) {
           if (!policyerr) {
             callback(1);
+          } else {
+            console.log("ERROR---", policyerr);
           }
         });
       }
     );
   } catch (e) {
+    console.log("DB Create Exception --", e);
     callback(1);
   }
 }
